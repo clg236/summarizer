@@ -3,3 +3,5 @@ youtube-transcript-api
 langchain
 tiktoken
 streamlit
+python-dotenv
+pytube

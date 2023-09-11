@@ -2,9 +2,12 @@ from langchain.document_loaders import YoutubeLoader
 from langchain import OpenAI
 from langchain.chains.summarize import load_summarize_chain 
 from langchain.text_splitter import CharacterTextSplitter
+from dotenv import load_dotenv
 
 import streamlit as st
 import os
+
+load_dotenv()
 
 # Hard code the YouTube URL
 youtube_url = "https://www.youtube.com/watch?v=lpWE82y11hs"
@@ -16,8 +19,7 @@ st.title('Video 1: The Economics of Digital')
 st.video(youtube_url)
 
 # Set the API key
-api_key = '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'
-os.environ["OPENAI_API_KEY"] = api_key
+api_key = os.environ.get("OPENAI_API_KEY")
 llm = OpenAI(temperature=0)  # Temp controls the randomness of the text
 
 # Load video transcript and info
