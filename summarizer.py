@@ -19,7 +19,7 @@ st.title('Video 1: The Economics of Digital')
 st.video(youtube_url)
 
 # Set the API key
-api_key = os.environ.get("OPENAI_API_KEY")
+api_key = st.secrets["OPENAI_API_KEY"]
 llm = OpenAI(temperature=0)  # Temp controls the randomness of the text
 
 # Load video transcript and info
